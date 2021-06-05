@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     List<String> items;
 
-    Button btnAdd;
+    Button btnAdd, clearBtn;
     EditText etItem;
     RecyclerView rvItems;
     ItemsAdapter itemsAdapter;
@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         btnAdd = findViewById(R.id.btnAdd);
+        clearBtn = findViewById(R.id.clearBtn);
         etItem = findViewById(R.id.etItem);
         rvItems = findViewById(R.id.rvItems);
 
@@ -87,6 +88,12 @@ public class MainActivity extends AppCompatActivity {
                 saveItems();
             }
         });
+        clearBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                etItem.getText().clear();
+            }
+        });
     }
 
     //handle the reuslt of the edit activity
@@ -105,7 +112,11 @@ public class MainActivity extends AppCompatActivity {
             //persist the changes
             saveItems();
             Toast.makeText(getApplicationContext(), "Item upated Succesfully", Toast.LENGTH_SHORT).show();
-
+        } else if (resultCode == RESULT_CANCELED){
+            items.remove(data.getExtras().getInt(KEY_ITEM_POSITION));
+            itemsAdapter.notifyItemRemoved(data.getExtras().getInt(KEY_ITEM_POSITION));
+            Toast.makeText(getApplicationContext(), "Item removed", Toast.LENGTH_SHORT).show();
+            saveItems();
         } else {
             Log.w("MainActivity", "Unknown call to onActivityResult");
         }

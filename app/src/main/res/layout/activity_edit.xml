@@ -28,4 +28,14 @@
         android:layout_marginTop="0dp"
         android:layout_marginEnd="0dp"
         android:text="Update Task" />
+
+    <Button
+        android:id="@+id/btnDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etItem"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_toStartOf="@+id/btnSave"
+        android:text="Delete" />
 </RelativeLayout>

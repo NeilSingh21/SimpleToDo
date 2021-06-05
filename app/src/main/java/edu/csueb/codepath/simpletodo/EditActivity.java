@@ -10,7 +10,7 @@ import android.widget.EditText;
 public class EditActivity extends AppCompatActivity {
 
     EditText etItem;
-    Button btnSave;
+    Button btnSave, btnDelete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +19,7 @@ public class EditActivity extends AppCompatActivity {
 
         etItem = findViewById(R.id.etItem);
         btnSave = findViewById(R.id.btnSave);
+        btnDelete = findViewById(R.id.btnDelete);
 
         getSupportActionBar().setTitle("Edit Task");
 
@@ -37,6 +38,16 @@ public class EditActivity extends AppCompatActivity {
                 setResult(RESULT_OK, intent);
                 //finish the activity, closing screen
                 finish();
+            }
+        });
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.putExtra(MainActivity.KEY_ITEM_POSITION, getIntent().getExtras().getInt(MainActivity.KEY_ITEM_POSITION));
+                setResult(RESULT_CANCELED, intent);
+                finish();
+
             }
         });
     }

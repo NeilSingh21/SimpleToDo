@@ -14,22 +14,31 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="0dp"
         android:layout_marginBottom="0dp"
         android:text="Add" />
 
     <EditText
         android:id="@+id/etItem"
-        android:layout_width="323dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="0dp"
         android:layout_marginEnd="0dp"
         android:layout_marginBottom="0dp"
-        android:layout_toStartOf="@+id/btnAdd"
+        android:layout_toStartOf="@+id/clearBtn"
         android:ems="10"
         android:hint="Add an item here"
         android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/clearBtn"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:layout_toStartOf="@+id/btnAdd"
+        android:text="Clear" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvItems"
@@ -41,4 +50,5 @@
         android:layout_marginStart="0dp"
         android:layout_marginTop="0dp"
         android:layout_marginBottom="0dp" />
+
 </RelativeLayout >
